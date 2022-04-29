@@ -141,10 +141,11 @@ const iconList = [
 	3. Stampo a schermo l'array che corrisponde al type selezionato dall'utente;
 */
 
+// Seleziono il contenitore all'interno del quale stampare;
 const iconSection = document.getElementById('icon_section');
 
 
-
+// Eseguo il sort degli elementi dell'array principale a seconda del type;
 const animalArray = iconList.filter((icon) => icon.type === 'animal');
 const vegetableArray = iconList.filter((icon) => icon.type === 'vegetable');
 const userArray = iconList.filter((icon) => icon.type === 'user');
@@ -153,8 +154,10 @@ const userArray = iconList.filter((icon) => icon.type === 'user');
 // console.log(vegetableArray)
 // console.log(userArray)
 
+// Stampa sempre prima tutte le icone al caricamento della pagina;
 iconBox(iconList);
 
+// Triggero, con il cambio del value tramite il select, la stampa delle schede a seconda del value selezionato dall'utente
 document.getElementById('select-type').addEventListener('change', function(){
 	switch (this.value) {
 		case 'animal':
@@ -183,10 +186,14 @@ document.getElementById('select-type').addEventListener('change', function(){
 });
 
 
-
+/**
+ * Stampa l'array selezionato tramite il select a schermo 
+ * @param {array} array 
+ */
 function iconBox(array){
 	
 	array.forEach((icon) => {
+
 		const cell = document.createElement('div');
 
 		cell.className = 'box';
@@ -210,6 +217,4 @@ function iconBox(array){
 	1- modificare la struttura dati fornita e valorizzare la proprietà “color” in modo dinamico: generare in modo casuale un codice colore, sapendo che la notazione esadecimale è formata dal simbolo “#” seguito da 6 caratteri alfanumerici compresi tra 0 e 9 e A e F.
 	2- popolare le options della select della milestone 3 dinamicamente.
 
-
-	1. Crea una funzione che estrae 
 */
