@@ -33,4 +33,19 @@ main {
     width: 200px;
     border-radius: 5px;
 }
+
+/* ICONS */
+
+.orange { 
+    color: orange;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+/* /ICONS */
 /* /MAIN */

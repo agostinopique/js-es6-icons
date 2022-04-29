@@ -154,14 +154,12 @@ iconList.forEach((icon) => {
 	
 	iconSection.append(col);
 	
-	const {name, family, prefix} = icon;
+	const {name, family, prefix, color} = icon;
 	console.log(icon)
 	
 	col.innerHTML = `
-		<i class='${family} ${prefix}${name} fa-2x'></i>
+		<i class='${family} ${prefix}${name} fa-2x ${color}'></i>
 		<span>${name}</span>`
 })
 
-
-	
 }
