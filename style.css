@@ -10,7 +10,7 @@
 /* MAIN */
 main {
     background-color: #DDDDDD;
-   
+    height: 100vh;
     font-size: 25px;
 }
 .ap_midcontainer {
@@ -25,7 +25,7 @@ main {
 
 .box{
     display: flex;
-    align-items: center;
+
     justify-content: center;
     flex-direction: column;
     background-color: #fff;
