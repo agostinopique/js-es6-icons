@@ -10,7 +10,8 @@
 /* MAIN */
 main {
     background-color: #DDDDDD;
-    height: calc(100vh - 60px);
+   
+    font-size: 25px;
 }
 .ap_midcontainer {
     background-color: #29B1DE;
@@ -21,10 +22,15 @@ main {
     height: 40px;
 }
 
-.icon_container{
-    background-color: #fff;
-    width: 60%;
-    margin: 0 auto;
-}
 
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    height: 100px;
+    width: 200px;
+    border-radius: 5px;
+}
 /* /MAIN */
