@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+/* /HEADER */
+
+/* MAIN */
+main {
+    background-color: #DDDDDD;
+    height: calc(100vh - 60px);
+}
+.ap_midcontainer {
+    background-color: #29B1DE;
+    height: 60px;
+}
+
+#select-type{
+    height: 40px;
+}
+
+.icon_container{
+    background-color: #fff;
+    width: 60%;
+    margin: 0 auto;
+}
+
+/* /MAIN */
