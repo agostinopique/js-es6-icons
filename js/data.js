@@ -179,7 +179,7 @@ document.getElementById('select-type').addEventListener('change', function(){
 			iconSection.innerHTML = '';
 			iconBox(iconList);
 			break;
-				
+
 		default:
 			break;
 	}
@@ -193,6 +193,8 @@ document.getElementById('select-type').addEventListener('change', function(){
 function iconBox(array){
 	
 	array.forEach((icon) => {
+		
+		icon.color = randomizeColor();
 
 		const cell = document.createElement('div');
 
@@ -203,9 +205,10 @@ function iconBox(array){
 		
 		const {name, family, prefix, color} = icon;
 		// console.log(icon)
+
 		
 		cell.innerHTML = `
-			<i class='${family} ${prefix}${name} fa-2x ${color}'></i>
+			<i class='${family} ${prefix}${name} fa-2x' style='color: ${color}'></i>
 			<span>${name}</span>`
 	})
 
@@ -217,4 +220,22 @@ function iconBox(array){
 	1- modificare la struttura dati fornita e valorizzare la proprietà “color” in modo dinamico: generare in modo casuale un codice colore, sapendo che la notazione esadecimale è formata dal simbolo “#” seguito da 6 caratteri alfanumerici compresi tra 0 e 9 e A e F.
 	2- popolare le options della select della milestone 3 dinamicamente.
 
+
+	BONUS 1
+	1. Creare un estrattore casualedi numeri da 0 a 9 e di lettere da A a F;
+	2. Il return della funzione deve andare a sovrascrivere i valori della proprietá color;
+
+	BONUS 2
+	1.
 */
+function randomizeColor(){
+	let lettersNumbers = 'ABCDEF0123456789';
+	let finalColor = '#';
+
+	for(let i= 0; i < 6; i++){
+		finalColor += lettersNumbers[Math.floor(Math.random() * 16)];
+		console.log(finalColor)
+	}
+
+	return finalColor;
+}
