@@ -158,7 +158,7 @@ const userArray = iconList.filter((icon) => icon.type === 'user');
 iconBox(iconList);
 
 // Triggero, con il cambio del value tramite il select, la stampa delle schede a seconda del value selezionato dall'utente
-document.getElementById('select-type').addEventListener('change', function(){
+document.getElementById('select-type').addEventListener('change',function(){
 	switch (this.value) {
 		case 'animal':
 			iconSection.innerHTML = '';
@@ -194,6 +194,7 @@ function iconBox(array){
 	
 	array.forEach((icon) => {
 		
+		// Randomizza il colore di ogni singola icona;
 		icon.color = randomizeColor();
 
 		const cell = document.createElement('div');
@@ -226,7 +227,8 @@ function iconBox(array){
 	2. Il return della funzione deve andare a sovrascrivere i valori della proprietá color;
 
 	BONUS 2
-	1.
+	1. Destruttura gli oggeti per ottenere il type;
+	2. Sovrascrivi il value con la proprietá ottenuta dal punto sopra;
 */
 function randomizeColor(){
 	let lettersNumbers = 'ABCDEF0123456789';
@@ -234,8 +236,32 @@ function randomizeColor(){
 
 	for(let i= 0; i < 6; i++){
 		finalColor += lettersNumbers[Math.floor(Math.random() * 16)];
-		console.log(finalColor)
+		// console.log(finalColor)
 	}
 
 	return finalColor;
 }
+
+dinamicType(iconList);
+
+function dinamicType(array){ 
+	
+	let arrayType = ['all'];
+
+	array.forEach((icon) => {
+		const {type} = icon;
+		
+		if(!arrayType.includes(type)){
+			arrayType.push(type);
+			console.log(type)
+		}
+	});
+
+	arrayType.forEach((el) => {
+
+		document.getElementById('select-type').innerHTML += `<option value=${el}>${el}</option>`;
+		
+	})
+}
+
+// Per rendere il cambio dei value dinamico puoi dinamicizzare il filter indicando come nome una concatenazione dell'indice dell'array dei type con la parola Array e farlo ciclare per la lunghezza dell' array dei type. In questop modo hai come risultato degli array con nomi diversi e con gli oggetti del valore corrispondente.
