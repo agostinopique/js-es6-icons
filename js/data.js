@@ -110,21 +110,42 @@ const iconList = [
 		type: 'user',
 		family: 'fas',
 		color: 'blue'
-	}, 
-	
+	},
+
 
 	{
-		name: 'user-ninja',
+		name: 'display',
 		prefix: 'fa-',
-		type: 'dogs',
+		type: 'computer',
 		family: 'fas',
 		color: 'blue'
 	},
 	{
-		name: 'user-secret',
+		name: 'computer',
 		prefix: 'fa-',
-		type: 'dogs',
+		type: 'computer',
 		family: 'fas',
+		color: 'blue'
+	},
+	{
+		name: 'heart',
+		prefix: 'fa-',
+		type: 'love',
+		family: 'fa-regular',
+		color: 'blue'
+	},
+	{
+		name: 'bitcoin-sign',
+		prefix: 'fa-',
+		type: 'crypto',
+		family: 'fa-solid',
+		color: 'blue'
+	},
+	{
+		name: 'terminal',
+		prefix: 'fa-',
+		type: 'computer',
+		family: 'fa-solid',
 		color: 'blue'
 	}
 ];
@@ -162,9 +183,6 @@ const iconSection = document.getElementById('icon_section');
 
 
 // Eseguo il sort degli elementi dell'array principale a seconda del type;
-const animalArray = iconList.filter((icon) => icon.type === 'animal');
-const vegetableArray = iconList.filter((icon) => icon.type === 'vegetable');
-const userArray = iconList.filter((icon) => icon.type === 'user');
 
 // console.log(animalArray)
 // console.log(vegetableArray)
@@ -174,6 +192,7 @@ const userArray = iconList.filter((icon) => icon.type === 'user');
 iconBox(iconList);
 
 // Triggero, con il cambio del value tramite il select, la stampa delle schede a seconda del value selezionato dall'utente
+/* 
 document.getElementById('select-type').addEventListener('change',function(){
 	switch (this.value) {
 		case 'animal':
@@ -200,7 +219,7 @@ document.getElementById('select-type').addEventListener('change',function(){
 			break;
 	}
 });
-
+ */
 
 /**
  * Stampa l'array selezionato tramite il select a schermo 
@@ -279,12 +298,18 @@ function dinamicType(array){
 
 		const elArray = iconList.filter((icon) => icon.type === el);
 		console.log(elArray);
+		console.log(el);
 
 		document.getElementById('select-type').addEventListener('change', function(){
 			switch (this.value) {
 				case el:
 					iconSection.innerHTML = '';
 					iconBox(elArray);
+					break;
+				
+				case 'all':
+					iconSection.innerHTML = '';
+					iconBox(iconList);
 					break;
 
 				default:
