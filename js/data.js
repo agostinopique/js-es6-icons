@@ -110,6 +110,22 @@ const iconList = [
 		type: 'user',
 		family: 'fas',
 		color: 'blue'
+	}, 
+	
+
+	{
+		name: 'user-ninja',
+		prefix: 'fa-',
+		type: 'dogs',
+		family: 'fas',
+		color: 'blue'
+	},
+	{
+		name: 'user-secret',
+		prefix: 'fa-',
+		type: 'dogs',
+		family: 'fas',
+		color: 'blue'
 	}
 ];
 
@@ -253,15 +269,30 @@ function dinamicType(array){
 		
 		if(!arrayType.includes(type)){
 			arrayType.push(type);
-			console.log(type)
+			// console.log(type)
 		}
 	});
 
 	arrayType.forEach((el) => {
 
 		document.getElementById('select-type').innerHTML += `<option value=${el}>${el}</option>`;
+
+		const elArray = iconList.filter((icon) => icon.type === el);
+		console.log(elArray);
+
+		document.getElementById('select-type').addEventListener('change', function(){
+			switch (this.value) {
+				case el:
+					iconSection.innerHTML = '';
+					iconBox(elArray);
+					break;
+
+				default:
+
+					break;
+				
+			}
+		})
 		
 	})
 }
-
-// Per rendere il cambio dei value dinamico puoi dinamicizzare il filter indicando come nome una concatenazione dell'indice dell'array dei type con la parola Array e farlo ciclare per la lunghezza dell' array dei type. In questop modo hai come risultato degli array con nomi diversi e con gli oggetti del valore corrispondente.
