@@ -183,13 +183,16 @@ const iconSection = document.getElementById('icon_section');
 
 
 // Eseguo il sort degli elementi dell'array principale a seconda del type;
-
+/* 
+const animalArray = iconList.filter((icon) => icon.type === 'animal');
+const vegetableArray = iconList.filter((icon) => icon.type === 'vegetable');
+const userArray = iconList.filter((icon) => icon.type === 'user');
+ */
 // console.log(animalArray)
 // console.log(vegetableArray)
 // console.log(userArray)
 
-// Stampa sempre prima tutte le icone al caricamento della pagina;
-iconBox(iconList);
+
 
 // Triggero, con il cambio del value tramite il select, la stampa delle schede a seconda del value selezionato dall'utente
 /* 
@@ -225,7 +228,7 @@ document.getElementById('select-type').addEventListener('change',function(){
  * Stampa l'array selezionato tramite il select a schermo 
  * @param {array} array 
  */
-function iconBox(array){
+const iconBox = (array) => {
 	
 	array.forEach((icon) => {
 		
@@ -236,7 +239,7 @@ function iconBox(array){
 
 		cell.className = 'box';
 		cell.classList.add('m-3', 'text-center');
-		
+
 		iconSection.append(cell);
 		
 		const {name, family, prefix, color} = icon;
@@ -265,8 +268,9 @@ function iconBox(array){
 	1. Destruttura gli oggeti per ottenere il type;
 	2. Sovrascrivi il value con la proprietá ottenuta dal punto sopra;
 */
+
 function randomizeColor(){
-	let lettersNumbers = 'ABCDEF0123456789';
+	const lettersNumbers = 'ABCDEF0123456789';
 	let finalColor = '#';
 
 	for(let i= 0; i < 6; i++){
@@ -277,9 +281,8 @@ function randomizeColor(){
 	return finalColor;
 }
 
-dinamicType(iconList);
 
-function dinamicType(array){ 
+const dinamicType = (array) => { 
 	
 	let arrayType = ['all'];
 
@@ -297,8 +300,9 @@ function dinamicType(array){
 		document.getElementById('select-type').innerHTML += `<option value=${el}>${el}</option>`;
 
 		const elArray = iconList.filter((icon) => icon.type === el);
-		console.log(elArray);
-		console.log(el);
+
+		// console.log(elArray);
+		// console.log(el);
 
 		document.getElementById('select-type').addEventListener('change', function(){
 			switch (this.value) {
@@ -313,11 +317,16 @@ function dinamicType(array){
 					break;
 
 				default:
-
 					break;
-				
 			}
+
 		})
-		
 	})
+
 }
+
+// Stampa sempre prima tutte le icone al caricamento della pagina;
+iconBox(iconList);
+
+// Cambia dinaicamente le option in base ai type presenti nell'array degli oggetti
+dinamicType(iconList);

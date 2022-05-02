@@ -5,6 +5,10 @@
 }
 
 /* HEADER */
+
+header {
+    font-family: 'Acme', sans-serif;
+}
 /* /HEADER */
 
 /* MAIN */
@@ -24,7 +28,6 @@ main {
 
 .box{
     display: flex;
-
     justify-content: center;
     flex-direction: column;
     background-color: #fff;
